@@ -5,23 +5,26 @@ var http = require('http')
 var server = http.createServer(function (request, response) {
   if (request.url === '/') {
     response.end( 
-      '<h1>Sup dude</h1>' +
+      '<h1>Home Page</h1>' +
+      '<h2>Sup dude</h2>' +
       '<img src="https://i.imgur.com/jKhQJVH.jpg" alt="Waving hi">'
     )
   } else if (request.url === '/random-joke') {
     response.end(
+      '<h1>Random Joke</h1>' +
       randomJoke() +
       "<a href='/'>Back to home</a>"
     )
   } else if (request.url === '/cuteness') {
     response.end(
+      '<h1>Cuteness</h1>' +
       "<a href='/'>Back to home</a>" +
       '<p><img src="https://i.imgur.com/MQHYB.jpg" alt="Super cute cat"></p>'
     )
   } 
   else {
     response.end(
-      '<h1>Error 404: Page not found</h1>' +
+      '<h1>Error 404: ' + request.url + ' not found</h1>' +
       '<p>Son of Anton\'s machine learning algorithm must have deleted the page. It\'s still learning. We\'ll get to fixing that eventually</p>' +
       "<a href='/'>Back to home</a>"
     )
